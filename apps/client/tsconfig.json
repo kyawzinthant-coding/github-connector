@@ -1,9 +1,15 @@
 {
   "extends": "../../tsconfig.base.json",
   "files": [],
-  "references": [{ "path": "../../packages/types" }],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" },
+    { "path": "../../packages/types" }
+  ],
   "compilerOptions": {
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "composite": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"]
 }

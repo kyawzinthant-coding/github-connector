@@ -1,40 +1,32 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { User } from "@repo/types";
+
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
+import { useState } from "react";
+import RepoSelector from "./RoleSelector";
+import RepoDetails from "./RepoDetails";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const user: User = {
-    id: "1",
-    name: "Kyaw",
-    email: "kyaw@example.com",
-  };
+  const [selectedRepo, setSelectedRepo] = useState<string | null>(null);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p>Hello World!</p>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+
+      <h1>GitHub Repository Viewer</h1>
+      <RepoSelector onRepoSelect={setSelectedRepo} />
+      <hr />
+      <RepoDetails repoFullName={selectedRepo} />
     </>
   );
 }

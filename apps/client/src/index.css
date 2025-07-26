@@ -65,4 +65,42 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} /* Add to your existing CSS file */
+.repo-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #555;
+  font-size: 0.9em;
+  margin: 16px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+.repo-stats a {
+  color: #2c6ecb;
+  text-decoration: none;
+}
+.repo-stats a:hover {
+  text-decoration: underline;
+}
+
+/* Basic styling for rendered markdown content */
+.markdown-body {
+  line-height: 1.6;
+}
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+}
+.markdown-body code {
+  background-color: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+.markdown-body pre {
+  background-color: #f7f7f7;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
 }
